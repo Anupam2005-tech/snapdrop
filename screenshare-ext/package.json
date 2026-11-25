@@ -1,0 +1,12 @@
+{
+  "name": "snapdrop",
+  "version": "1.0.0",
+  "description": "Screenshot to Google Drive Chrome Extension",
+  "private": true,
+  "scripts": {
+    "icons": "node generate-icons.js"
+  },
+  "dependencies": {
+    "canvas": "^3.2.3"
+  }
+}

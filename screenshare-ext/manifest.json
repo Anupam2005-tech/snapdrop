@@ -1,0 +1,68 @@
+{
+  "manifest_version": 3,
+  "name": "SnapDrop",
+  "version": "1.0.0",
+  "description": "Capture any tab as a screenshot \u2192 choose your format \u2192 auto-save to snapdrop/photos on Google Drive \u2192 get a public share link copied to your clipboard instantly.",
+  "permissions": [
+    "activeTab",
+    "tabs",
+    "identity",
+    "storage",
+    "clipboardWrite",
+    "notifications",
+    "offscreen",
+    "desktopCapture",
+    "scripting"
+  ],
+  "host_permissions": [
+    "https://www.googleapis.com/*"
+  ],
+  "oauth2": {
+    "client_id": "1042446215359-15a4oe87d43st84gn9fvi2cheboppij6.apps.googleusercontent.com",
+    "scopes": [
+      "https://www.googleapis.com/auth/drive.file",
+      "https://www.googleapis.com/auth/drive.metadata.readonly"
+    ]
+  },
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "action": {
+    "default_popup": "popup/popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "32": "icons/icon32.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "commands": {
+    "capture": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+S",
+        "mac": "Command+Shift+S"
+      },
+      "description": "Capture screenshot"
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "run_at": "document_idle",
+      "all_frames": false
+    }
+  ],
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAvUwfhHXW0AVSK/dOx7Qf/EQaAgAWDXpxmTKCrrPDBgAyhS4V7PsrZxhuF4hm0vtYiWlU4WFqkU6Hi+4UNzDq+b9+JapsxmmlC07hpww6WFDFRzAP5ga+/sbzPxOJV+FKsaZlZCWTe4Q+b0PTyqmLbpJyYvt3rBweG4CPDTNKBzoOgaE6h4Qu9AK9uor/DaIS+5HLdff898/AHL9vo1pGAUYW2+hoR6BxB5VqgBivw4Q1VjBqBlQUhvl4xlX3nfMb2DtoQ3LftG80PWewA0xsJbk72rkwjDYjidUpOwqtuy5eX71P5uzQifu1zV/z5EA0AqCn1ci9NghWoXV31LoZJQIDAQAB"
+}
